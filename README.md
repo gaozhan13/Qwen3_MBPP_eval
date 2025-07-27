@@ -37,8 +37,8 @@
 
 1. **克隆项目**：
 ```bash
-git clone <your-repository-url>
-cd qwen3_eval
+git clone https://github.com/gaozhan13/Qwen3_MBPP_eval.git
+cd Qwen3_MBPP_eval
 ```
 
 2. **自动安装**（推荐）：
@@ -75,58 +75,25 @@ python run_mbpp_original_instruct_non_thinking.py --model Qwen/Qwen3-0.6B --k 1
 # Pass@10评估
 python run_mbpp_original_instruct_non_thinking.py --model Qwen/Qwen3-0.6B --k 10
 
-# 自定义输出目录
-python run_mbpp_original_instruct_non_thinking.py --model Qwen/Qwen3-0.6B --k 1 --output-dir custom_results
-```
-
-## ⚙️ 配置参数
-
-### 命令行参数
-
-| 参数 | Base模型默认值 | Instruct模型默认值 | 说明 |
-|------|----------------|-------------------|------|
-| `--model` | `Qwen/Qwen3-0.6B-Base` | `Qwen/Qwen3-0.6B` | 模型路径或HuggingFace模型名 |
-| `--k` | `1` | `1` | Pass@K评估中的K值 |
-| `--output-dir` | `mbpp_results_base` | `mbpp_results_instruct_non_thinking` | 结果输出目录 |
-| `--max-samples` | `None` | `None` | 最大评估样本数（用于测试） |
-| `--max-length` | `512` | `512` | 最大生成token数量 |
-| `--timeout` | `5` | `5` | 代码执行超时时间（秒） |
-| `--log-level` | `INFO` | `INFO` | 日志级别 |
-
-### 生成配置
-
-#### Base模型配置
-```python
-temperature: 0.2
-do_sample: True
-top_p: 0.95
-top_k: 50
-repetition_penalty: 1.05
-```
-
-#### Instruct模型配置
-```python
-temperature: 0.7
-top_p: 0.8
-top_k: 20
-min_p: 0.0
+# 快速测试（仅评估前50个样本）
+python run_mbpp_original_instruct_non_thinking.py --model Qwen/Qwen3-0.6B --k 5 --max-samples 50
 ```
 
 ## 📁 项目结构
 
 ```
-qwen3_eval/
+Qwen3_MBPP_eval/
 ├── README.md                                    # 项目说明文档
 ├── requirements.txt                             # Python依赖列表
 ├── install_evaluation_frameworks.sh             # 自动安装脚本
 ├── run_mbpp_original_base.py                    # Base模型评估脚本
 ├── run_mbpp_original_instruct_non_thinking.py   # Instruct模型评估脚本
 ├── mbpp_results_base/                           # Base模型评估结果
-│   ├── mbpp_base_evaluation_results.json       # 评估摘要
-│   └── mbpp_base_detailed_results.json         # 详细结果
+│   ├── mbpp_base_evaluation_results.json        # 评估摘要
+│   └── mbpp_base_detailed_results.json          # 详细结果
 └── mbpp_results_instruct_non_thinking/          # Instruct模型评估结果
-    ├── mbpp_instruct_evaluation_results.json   # 评估摘要
-    └── mbpp_instruct_detailed_results.json     # 详细结果
+    ├── mbpp_instruct_evaluation_results.json    # 评估摘要
+    └── mbpp_instruct_detailed_results.json      # 详细结果
 ```
 
 ## 📈 结果文件说明
@@ -135,16 +102,16 @@ qwen3_eval/
 
 ```json
 {
-  "model": "Qwen/Qwen3-0.6B",
-  "model_type": "instruct",
-  "evaluation_method": "0-shot",
-  "dataset": "mbpp_original",
-  "k": 1,
-  "total_samples": 500,
-  "passed_samples": 250,
-  "pass_at_k": 0.500,
-  "evaluation_time": 1800.0,
-  "average_time_per_sample": 3.6
+  "model": "Qwen/Qwen3-0.6B",                    // 使用的模型名称
+  "model_type": "instruct",                      // 模型类型（instruct/基座等）
+  "evaluation_method": "0-shot",                 // 评估方法（如0-shot）
+  "dataset": "mbpp_original",                    // 评测用的数据集
+  "k": 1,                                        // pass@k中的k值
+  "total_samples": 500,                          // 总评测样本数
+  "passed_samples": 250,                         // 通过样本数
+  "pass_at_k": 0.500,                            // pass@k分数
+  "evaluation_time": 1800.0,                     // 总评测耗时（秒）
+  "average_time_per_sample": 3.6                 // 单个样本平均耗时（秒）
 }
 ```
 
