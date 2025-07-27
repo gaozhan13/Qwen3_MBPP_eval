@@ -56,7 +56,7 @@ pip install -r requirements.txt
 #### 评估Base模型（预训练模型）
 
 ```bash
-# Pass@1评估（最常用）
+# Pass@1评估
 python run_mbpp_original_base.py --model Qwen/Qwen3-0.6B-Base --k 1
 
 # Pass@10评估
@@ -100,20 +100,17 @@ Qwen3_MBPP_eval/
 
 ### 评估摘要（`*_evaluation_results.json`）
 
-```json
-{
-  "model": "Qwen/Qwen3-0.6B",                    # 使用的模型名称
-  "model_type": "instruct",                      # 模型类型（instruct/基座等）
-  "evaluation_method": "0-shot",                 # 评估方法（如0-shot）
-  "dataset": "mbpp_original",                    # 评测用的数据集
-  "k": 1,                                        # pass@k中的k值
-  "total_samples": 500,                          # 总评测样本数
-  "passed_samples": 250,                         # 通过样本数
-  "pass_at_k": 0.500,                            # pass@k分数
-  "evaluation_time": 1800.0,                     # 总评测耗时（秒）
-  "average_time_per_sample": 3.6                 # 单个样本平均耗时（秒）
-}
-```
+"model": "Qwen/Qwen3-0.6B",                    # 使用的模型名称
+"model_type": "instruct",                      # 模型类型（instruct/基座等）
+"evaluation_method": "0-shot",                 # 评估方法（如0-shot）
+"dataset": "mbpp_original",                    # 评测用的数据集
+"k": 1,                                        # pass@k中的k值
+"total_samples": 500,                          # 总评测样本数
+"passed_samples": 250,                         # 通过样本数
+"pass_at_k": 0.500,                            # pass@k分数
+"evaluation_time": 1800.0,                     # 总评测耗时（秒）
+"average_time_per_sample": 3.6                 # 单个样本平均耗时（秒）
+
 
 ### 详细结果（`*_detailed_results.json`）
 
