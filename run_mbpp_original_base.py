@@ -657,7 +657,7 @@ def create_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--timeout",
         type=int,
-        default=5,
+        default=10,
         help="代码执行超时时间（秒）",
     )
 

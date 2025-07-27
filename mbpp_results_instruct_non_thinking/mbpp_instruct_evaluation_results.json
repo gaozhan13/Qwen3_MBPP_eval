@@ -1,0 +1,12 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "model_type": "instruct",
+  "evaluation_method": "0-shot",
+  "dataset": "mbpp_original",
+  "k": 10,
+  "total_samples": 500,
+  "passed_samples": 201,
+  "pass_at_k": 0.402,
+  "evaluation_time": 4365.149147033691,
+  "average_time_per_sample": 8.730298294067383
+}
