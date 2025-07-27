@@ -2,11 +2,11 @@
   "model": "Qwen/Qwen3-0.6B-Base",
   "model_type": "base",
   "evaluation_method": "0-shot",
-  "dataset": "mbpp_original_base",
-  "k": 1,
+  "dataset": "mbpp_original",
+  "k": 10,
   "total_samples": 500,
-  "passed_samples": 106,
-  "pass_at_k": 0.212,
-  "evaluation_time": 340.56246995925903,
-  "average_time_per_sample": 0.6811249399185181
+  "passed_samples": 163,
+  "pass_at_k": 0.326,
+  "evaluation_time": 3651.4389629364014,
+  "average_time_per_sample": 7.302877925872803
 }

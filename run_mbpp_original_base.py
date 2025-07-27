@@ -558,7 +558,7 @@ class MBPPEvaluator:
             model=self.config.model_path,
             model_type="base",
             evaluation_method="0-shot",
-            dataset="mbpp_original_base",
+            dataset="mbpp_original",
             k=self.config.k,
             total_samples=len(results),
             passed_samples=total_correct,
