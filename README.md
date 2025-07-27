@@ -24,6 +24,23 @@
 - **代码长度统计**：生成代码的长度分布统计
 - **成功率分析**：按任务类型和难度级别的成功率分析
 
+## 📁 项目结构
+
+```
+Qwen3_MBPP_eval/
+├── README.md                                    # 项目说明文档
+├── requirements.txt                             # Python依赖列表
+├── install_evaluation_frameworks.sh             # 自动安装脚本
+├── run_mbpp_original_base.py                    # Base模型评估脚本
+├── run_mbpp_original_instruct_non_thinking.py   # Instruct模型评估脚本
+├── mbpp_results_base/                           # Base模型评估结果
+│   ├── mbpp_base_evaluation_results.json        # 评估摘要
+│   └── mbpp_base_detailed_results.json          # 详细结果
+└── mbpp_results_instruct_non_thinking/          # Instruct模型评估结果
+    ├── mbpp_instruct_evaluation_results.json    # 评估摘要
+    └── mbpp_instruct_detailed_results.json      # 详细结果
+```
+
 ## 🚀 快速开始
 
 ### 环境要求
@@ -77,21 +94,4 @@ python run_mbpp_original_instruct_non_thinking.py --model Qwen/Qwen3-0.6B --k 10
 
 # 快速测试（仅评估前50个样本）
 python run_mbpp_original_instruct_non_thinking.py --model Qwen/Qwen3-0.6B --k 5 --max-samples 50
-```
-
-## 📁 项目结构
-
-```
-Qwen3_MBPP_eval/
-├── README.md                                    # 项目说明文档
-├── requirements.txt                             # Python依赖列表
-├── install_evaluation_frameworks.sh             # 自动安装脚本
-├── run_mbpp_original_base.py                    # Base模型评估脚本
-├── run_mbpp_original_instruct_non_thinking.py   # Instruct模型评估脚本
-├── mbpp_results_base/                           # Base模型评估结果
-│   ├── mbpp_base_evaluation_results.json        # 评估摘要
-│   └── mbpp_base_detailed_results.json          # 详细结果
-└── mbpp_results_instruct_non_thinking/          # Instruct模型评估结果
-    ├── mbpp_instruct_evaluation_results.json    # 评估摘要
-    └── mbpp_instruct_detailed_results.json      # 详细结果
 ```
